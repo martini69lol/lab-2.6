@@ -1,43 +1,21 @@
-# создайте словарь, связав его с переменной school , и наполните данными,
-# которые бы отражали количество учащихся в разных классах (1а, 1б, 2б, 6а, 7в и т. п.).
-# Внесите изменения в словарь согласно следующему: а) в одном из классов изменилось
-# количество учащихся, б) в школе появился новый класс, с) в школе был расформирован
-# (удален) другой класс. Вычислите общее количество учащихся в школе.
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-SCHOOL = {
-    '1а': 22,
-    '1б': 15,
-    '6а': 16,
-    '7в': 20,
-    '6б': 14,
-    '5в': 14
-}
+if __name__ == '__main__':
 
+    school = {'1а': 25, '1б': 27, '2б': 29, '6а': 22, '7в': 30}
 
-def changes_class(class_school, quantity):
-    SCHOOL.update(
-        {
-            class_school: quantity
-        }
-    )
+    # Изменяем количество учеников в классе
+    school['1б'] = 28
 
+    # Добавляем новый класс
+    school['7а'] = 25
 
-def new_class(class_name, quantity):
-    SCHOOL.update(
-        {
-            class_name: quantity
-        }
-    )
+    # Удаляем класс
+    del school['6а']
 
+    # Вычисляем общее количество учащихся в школе
+    total_students = sum(school.values())
 
-def disbanded_class(class_name):
-    SCHOOL.pop(class_name)
-
-
-def quantity_in_school():
-    result = 0
-    for v in SCHOOL.values():
-        result += v
-
-    return result
-
+    print(school)
+    print("Общее количество учащихся в школе:", total_students)
